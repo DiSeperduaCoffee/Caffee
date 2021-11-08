@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using DiSeperduaCoffee.Models;
+using DiSeperduaCoffe.Models;
 using DiSeperduaCoffee.Data;
 
 namespace DiSeperduaCoffee.Data
@@ -9,6 +9,6 @@ namespace DiSeperduaCoffee.Data
         public DiSeperduaCoffeeDbContext (DbContextOptions<DiSeperduaCoffeeDbContext> options ) : base(options)
         { }
 
-        public DbSet<Coffee> Coffees { get; set; }
+        private DbSet<Coffee> coffees;
     }
 } 
