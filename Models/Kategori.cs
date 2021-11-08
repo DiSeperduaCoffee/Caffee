@@ -8,6 +8,7 @@ namespace DiSeperduaCoffee.Models
     {
         public int Id { get; set; }
         public string Jenis { get; set; }
+        public List<Kategori> Kategoris { get; set; }
 
     }
 }

@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using DiSeperduaCoffee.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.Identity;
+using DiSeperduaCoffee.Models;
 
 namespace DiSeperduaCoffee.Controllers
 
@@ -29,10 +31,14 @@ public IConfiguration Configuration { get; }
             services.AddDbContext<DiSeperduaCoffeeDbContext>(option =>
             {
                 var connectionString = Configuration.GetConnectionString("DiSeperduaCoffee");
-                var serverVersion = new MariaDbServerVersion(new Version(10, 6, 4
-));
+                var serverVersion = new MariaDbServerVersion(new Version(10, 6, 4));
                 option.UseMySql(connectionString, serverVersion);
             });
+            services
+                  .AddDefaultIdentity<Pengguna>()
+                  .AddEntityFrameworkStores<DiSeperduaCoffeeDbContext>()
+                  .AddDefaultTokenProviders();
+                  services.AddRazorPages();
         }
         // This method gets called by the runtime. Use this method to configure t
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,12 +56,14 @@ public IConfiguration Configuration { get; }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
 
             });
         }

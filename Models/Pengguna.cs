@@ -9,7 +9,7 @@ namespace DiSeperduaCoffee.Models
     {
         public string Name { get; set; }
 
-        private List<Coffee> coffes { get; set; }
+        public List<Pengguna> Penggunas { get; set; }
         }
     }
    

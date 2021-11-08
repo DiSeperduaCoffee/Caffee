@@ -11,6 +11,7 @@ namespace DiSeperduaCoffee.Models
         public string Pengguna { get; set; }
         public DateTime WaktuPembayaran { get; set; }
         public decimal Total { get; set; }
+        public List <Pembayaran> Pembayarans { get; set; }
 
         
     }

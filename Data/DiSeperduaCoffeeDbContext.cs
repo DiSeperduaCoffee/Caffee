@@ -1,14 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using DiSeperduaCoffe.Models;
-using DiSeperduaCoffee.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using DiSeperduaCoffee.Models;
 
 namespace DiSeperduaCoffee.Data
-{
-    public class DiSeperduaCoffeeDbContext : DbContext
-    {
-        public DiSeperduaCoffeeDbContext (DbContextOptions<DiSeperduaCoffeeDbContext> options ) : base(options)
-        { }
 
-        private DbSet<Coffee> coffees;
+{
+    public class DiSeperduaCoffeeDbContext : IdentityDbContext<Pengguna>
+    {
+        public DiSeperduaCoffeeDbContext (DbContextOptions<DiSeperduaCoffeeDbContext> options) : base(options)
+        { }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<Kategori> Kategoris { get; set; }
+        public DbSet<Pembayaran> Pembayarans { get; set; }
+        public DbSet<Pemesanan> Pemesanans { get; set; }
     }
-} 
+}

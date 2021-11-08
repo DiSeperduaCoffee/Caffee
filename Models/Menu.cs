@@ -4,14 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DiSeperduaCoffee.Models
 {
-    public class Pemesanan
+    public class Menu
     {
         public int Id { get; set; }
-        public string Menu { get; set; }
-        public string Pembayaran { get; set; }
-        public decimal Jumlah { get; set; }
+        public string Varian { get; set; }
         public decimal Harga { get; set; }
-        public List<Pemesanan> Pemesanas { get; set; }
-
+        public string Komposisi { get; set; }
+        public List<Menu> Menus { get; set; }
     }
 }
+
