@@ -33,6 +33,7 @@ public IConfiguration Configuration { get; }
                 var connectionString = Configuration.GetConnectionString("DiSeperduaCoffee");
                 var serverVersion = new MariaDbServerVersion(new Version(10, 6, 4));
                 option.UseMySql(connectionString, serverVersion);
+                option.UseLazyLoadingProxies();
             });
             services
                   .AddDefaultIdentity<Pengguna>()

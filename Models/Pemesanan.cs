@@ -11,7 +11,7 @@ namespace DiSeperduaCoffee.Models
         public string Pembayaran { get; set; }
         public decimal Jumlah { get; set; }
         public decimal Harga { get; set; }
-        public List<Pemesanan> Pemesanas { get; set; }
+        public virtual List<Pemesanan> Pemesanas { get; set; }
 
     }
 }

@@ -1,6 +1,5 @@
 using System;
-using DiSeperduaCoffee.Data;
-using DiSeperduaCoffee.Models;
+using DiSeperduaCoffe.Areas.Identity.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -16,6 +15,12 @@ namespace DiSeperduaCoffe.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+                services.AddDbContext<DiSeperduaCoffeeDbContext>(options =>
+                    options.UseSqlServer(
+                        context.Configuration.GetConnectionString("DiSeperduaCoffeeDbContextConnection")));
+
+                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<DiSeperduaCoffeeDbContext>();
             });
         }
     }

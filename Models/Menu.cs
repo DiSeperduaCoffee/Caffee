@@ -10,7 +10,7 @@ namespace DiSeperduaCoffee.Models
         public string Varian { get; set; }
         public decimal Harga { get; set; }
         public string Komposisi { get; set; }
-        public List<Menu> Menus { get; set; }
+        public virtual List<Menu> Menus { get; set; }
     }
 }
 
