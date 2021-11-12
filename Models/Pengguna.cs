@@ -8,9 +8,10 @@ namespace DiSeperduaCoffee.Models
     public class Pengguna : IdentityUser
     {
         public string Name { get; set; }
+        public string Avatar { get; set; }
 
         public virtual List<Pengguna> Penggunas { get; set; }
-        public string Avatar { get; internal set; }
+
         }
     }
    

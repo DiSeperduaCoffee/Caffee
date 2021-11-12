@@ -3,14 +3,16 @@ using System;
 using DiSeperduaCoffee.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DiSeperduaCoffe.Migrations
 {
     [DbContext(typeof(DiSeperduaCoffeeDbContext))]
-    partial class DiSeperduaCoffeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211112064756_DiSeperduaCoffee")]
+    partial class DiSeperduaCoffee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

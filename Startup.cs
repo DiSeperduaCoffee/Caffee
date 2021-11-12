@@ -23,7 +23,7 @@ namespace DiSeperduaCoffee.Controllers
         {
             Configuration = configuration;
         }
-public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add service
         public void ConfigureServices(IServiceCollection services)
         {
@@ -37,6 +37,7 @@ public IConfiguration Configuration { get; }
             });
             services
                   .AddDefaultIdentity<Pengguna>()
+                  .AddRoles<IdentityRole>()
                   .AddEntityFrameworkStores<DiSeperduaCoffeeDbContext>()
                   .AddDefaultTokenProviders();
                   services.AddRazorPages();
