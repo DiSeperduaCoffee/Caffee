@@ -24,7 +24,7 @@ namespace DiSeperduaCoffe.Areas.Identity.Pages.Account.Manage
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public string Avatar { get; set;}
+        public string Avatar { get; set; }
 
         public string Username { get; set; }
 
@@ -53,7 +53,6 @@ namespace DiSeperduaCoffe.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber
             };
-            Avatar = Path.Combine("/Profile/Avatar", user.Avatar); 
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -95,20 +94,19 @@ namespace DiSeperduaCoffe.Areas.Identity.Pages.Account.Manage
             var avatarDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Avatars");
             Directory.CreateDirectory(avatarDirectory);
             var extension = Path.GetExtension(Input.AvatarFile?.FileName)?.ToLowerInvariant();
-            var permittedType = new string[] {".png",".jpg"};
+            var permittedType = new string[] { ".png",".jpg"};
             if (string.IsNullOrEmpty(extension) || !permittedType.Contains(extension))
             {
                 StatusMessage = "Unsupported file type";
                 return RedirectToPage();
             }
             var fileName = $"{user.Id}{extension}";
-            var avatarFile = Path.Combine(avatarDirectory,fileName);
+            var avatarFile = Path.Combine(avatarDirectory, fileName);
             using var stream = new FileStream(avatarFile, FileMode.Create);
             await Input.AvatarFile.CopyToAsync(stream);
             user.Avatar = fileName;
             await _userManager.UpdateAsync(user);
 
-            
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

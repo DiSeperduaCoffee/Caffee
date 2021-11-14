@@ -2,7 +2,7 @@
 
 namespace DiSeperduaCoffe.Migrations
 {
-    public partial class DiSeperduaCoffee : Migration
+    public partial class Avatar : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

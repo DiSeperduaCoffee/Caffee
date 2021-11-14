@@ -24,10 +24,5 @@ namespace DiSeperduaCoffee.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
     }
 }

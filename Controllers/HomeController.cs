@@ -14,8 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace DiSeperduaCoffe.Controllers
 {
     [Authorize]
-    [Authorize(Roles = "Admin")]
-    public class HomeController : Controller
+        public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private DiSeperduaCoffeeDbContext _context;
@@ -30,23 +29,20 @@ namespace DiSeperduaCoffe.Controllers
 
         public IActionResult Index()
         {
-            var userId = _userManager.GetUserId(User);
-            var user = _context.Users.Find(userId); 
+            
             return View();
         }
 
         public IActionResult Privacy()
         {
-            var userId = _userManager.GetUserId(User);
-            var user = _context.Users.Find(userId); 
+            
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            var userId = _userManager.GetUserId(User);
-            var user = _context.Users.Find(userId); 
+           
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

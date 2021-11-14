@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiSeperduaCoffe.Migrations
 {
     [DbContext(typeof(DiSeperduaCoffeeDbContext))]
-    [Migration("20211112064756_DiSeperduaCoffee")]
-    partial class DiSeperduaCoffee
+    [Migration("20211113113646_Avatar")]
+    partial class Avatar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
